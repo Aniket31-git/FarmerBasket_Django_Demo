@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}Contact{% endblock %}
+
+{% block content %}
+<div style="max-width:500px; margin:50px auto; padding:40px; background:var(--card); border-radius:14px; box-shadow:var(--shadow);">
+  
+  <h2 style="color:var(--green); text-align:center; margin-bottom:20px; font-size:28px;">Get in Touch</h2>
+  <p style="text-align:center; color:var(--muted); margin-bottom:30px;">
+    Have a question or feedback? We'd love to hear from you.
+  </p>
+
+  <form method="post" style="display:flex; flex-direction:column; gap:18px;">{% csrf_token %}
+    
+    <div style="display:flex; flex-direction:column;">
+      <label style="font-weight:600; color:var(--green); margin-bottom:6px;">Name</label>
+      <input name="name" required style="padding:10px 12px; border:1px solid #ccc; border-radius:8px;">
+    </div>
+
+    <div style="display:flex; flex-direction:column;">
+      <label style="font-weight:600; color:var(--green); margin-bottom:6px;">Email</label>
+      <input name="email" type="email" required style="padding:10px 12px; border:1px solid #ccc; border-radius:8px;">
+    </div>
+
+    <div style="display:flex; flex-direction:column;">
+      <label style="font-weight:600; color:var(--green); margin-bottom:6px;">Message</label>
+      <textarea name="message" rows="5" required style="padding:10px 12px; border:1px solid #ccc; border-radius:8px;"></textarea>
+    </div>
+
+    <button class="btn" type="submit" style="padding:12px; background:var(--green); color:white; border:none; border-radius:8px; font-weight:600; cursor:pointer; transition:0.3s;">
+      Send Message
+    </button>
+
+  </form>
+
+  <div style="margin-top:30px; text-align:center; font-size:14px; color:var(--muted);">
+    You can also reach us at <strong>support@farmerbasket.example</strong> or call <strong>+91 98765 43210</strong>.
+  </div>
+</div>
+{% endblock %}

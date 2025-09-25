@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %}Your Cart{% endblock %}
+
+{% block content %}
+<div style="max-width:900px; margin:50px auto; padding:30px; background:var(--card); border-radius:14px; box-shadow:var(--shadow);">
+    <h2 style="color:var(--green); text-align:center; margin-bottom:30px;">Your Cart</h2>
+
+    {% if items %}
+    <div style="overflow-x:auto;">
+        <table style="width:100%; border-collapse:collapse; text-align:center;">
+            <thead style="background:var(--green); color:white;">
+                <tr>
+                    <th style="padding:12px;">Product</th>
+                    <th style="padding:12px;">Quantity</th>
+                    <th style="padding:12px;">Price/Unit</th>
+                    <th style="padding:12px;">Remove</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for it in items %}
+                <tr style="border-bottom:1px solid #ddd; transition: background 0.2s;">
+                    <td style="padding:12px; text-align:left;">{{ it.product.name }}</td>
+                    <td style="padding:12px;">
+                        <form method="post" action="{% url 'update_cart' it.id %}" style="display:flex; justify-content:center; align-items:center; gap:6px;">
+                            {% csrf_token %}
+                            <input type="number" name="quantity" value="{{ it.quantity }}" min="0" style="width:60px; padding:6px; border-radius:6px; border:1px solid #ccc;">
+                            <button class="btn light" type="submit" style="padding:6px 12px; background:#f0f0f0; border:none; border-radius:6px; cursor:pointer;">Update</button>
+                        </form>
+                    </td>
+                    <td style="padding:12px;">₹{{ it.product.price|floatformat:2 }}</td>
+                    <td style="padding:12px;">
+                        <a href="{% url 'remove_cart' it.id %}" style="color:#ff4d4d; font-weight:600; text-decoration:none;">Remove</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div style="margin-top:20px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap;">
+        <div style="font-size:18px; font-weight:600;">Total: ₹{{ total }}</div>
+        <form method="post" action="{% url 'checkout' %}">
+            {% csrf_token %}
+            <button class="btn" type="submit" style="padding:12px 24px; background:var(--green); color:white; border:none; border-radius:8px; font-weight:600; cursor:pointer; transition:0.3s;">
+                Checkout
+            </button>
+        </form>
+    </div>
+
+    {% else %}
+    <p style="text-align:center; font-size:16px; color:var(--muted); margin-top:30px;">Your cart is empty.</p>
+    {% endif %}
+</div>
+{% endblock %}

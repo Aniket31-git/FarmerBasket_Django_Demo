@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block title %}Sign Up{% endblock %}
+
+{% block content %}
+<div style="max-width:400px; margin:50px auto; padding:40px; background:var(--card); border-radius:14px; box-shadow:var(--shadow); text-align:center;">
+  
+  <h2 style="color:var(--green); margin-bottom:24px; font-size:28px;">Create Your Account</h2>
+  <p style="color:var(--muted); margin-bottom:30px;">Sign up to get fresh produce delivered from your favorite farms.</p>
+  
+  <form method="post" style="display:flex; flex-direction:column; gap:16px;">{% csrf_token %}
+    <div style="text-align:left;">
+      <label style="font-weight:600; color:var(--green);">Full Name</label>
+      <input name="full_name" required style="width:100%; padding:10px 12px; border:1px solid #ccc; border-radius:8px; margin-top:6px;">
+    </div>
+
+    <div style="text-align:left;">
+      <label style="font-weight:600; color:var(--green);">Username</label>
+      <input name="username" required style="width:100%; padding:10px 12px; border:1px solid #ccc; border-radius:8px; margin-top:6px;">
+    </div>
+    
+    <div style="text-align:left;">
+      <label style="font-weight:600; color:var(--green);">Email</label>
+      <input name="email" type="email" required style="width:100%; padding:10px 12px; border:1px solid #ccc; border-radius:8px; margin-top:6px;">
+    </div>
+
+    <div style="text-align:left;">
+      <label style="font-weight:600; color:var(--green);">Password</label>
+      <input name="password1" type="password" required style="width:100%; padding:10px 12px; border:1px solid #ccc; border-radius:8px; margin-top:6px;">
+    </div>
+
+    <div style="text-align:left;">
+      <label style="font-weight:600; color:var(--green);">Confirm Password</label>
+      <input name="password2" type="password" required style="width:100%; padding:10px 12px; border:1px solid #ccc; border-radius:8px; margin-top:6px;">
+    </div>
+    
+    <button class="btn" type="submit" style="padding:12px; justify-content:center; background:var(--green); color:white; border:none; border-radius:8px; font-weight:600; cursor:pointer; transition:0.3s;">
+      Sign Up
+    </button>
+  </form>
+
+  <p style="margin-top:20px; color:var(--muted); font-size:14px;">
+    Already have an account? <a href="{% url 'login' %}" style="color:var(--green); font-weight:600;">Login</a>
+  </p>
+
+  <div style="margin-top:20px; font-size:14px; color:var(--muted);">
+    Or sign up with
+  </div>
+  <div style="display:flex; justify-content:center; gap:12px; margin-top:12px;">
+    <a href="#" style="padding:10px 16px; border:1px solid #ccc; border-radius:8px; text-decoration:none; color:var(--muted); font-weight:600;">Google</a>
+    <a href="#" style="padding:10px 16px; border:1px solid #ccc; border-radius:8px; text-decoration:none; color:var(--muted); font-weight:600;">Facebook</a>
+  </div>
+</div>
+{% endblock %}

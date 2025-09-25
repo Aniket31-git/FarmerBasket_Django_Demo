@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block title %}About Us{% endblock %}
+
+{% block content %}
+<section class="about-us" style="padding:40px; max-width:900px; margin:auto;">
+  <!-- Hero Section -->
+  <div style="text-align:center; margin-bottom:40px;">
+    <h1 style="font-size:32px; color:var(--green); margin-bottom:12px;">About FarmerBasket</h1>
+    <p style="font-size:16px; color:var(--muted);">
+      Fresh from farm to basket — delivering quality produce directly to your doorstep.
+    </p>
+  </div>
+
+  <!-- Our Story -->
+  <div style="margin-bottom:40px;">
+    <h2 style="font-size:24px; color:var(--green); margin-bottom:8px;">Our Story</h2>
+    <p style="font-size:15px; color:var(--muted); line-height:1.6;">
+      FarmerBasket was born from a simple idea: connecting local farmers with people who value fresh, healthy, and sustainable produce. 
+      We work directly with farmers to ensure you get the best fruits, vegetables, dairy, and grains — straight from the farm to your basket.
+    </p>
+  </div>
+
+  <!-- Our Farmers -->
+  <div style="margin-bottom:40px;">
+    <h2 style="font-size:24px; color:var(--green); margin-bottom:8px;">Our Farmers</h2>
+    <p style="font-size:15px; color:var(--muted); line-height:1.6;">
+      We partner with local farmers who use sustainable farming methods. 
+      Each product you receive supports a community of farmers and ensures high-quality, seasonal produce every time.
+    </p>
+  </div>
+
+  <!-- Quality Promise -->
+  <div style="margin-bottom:40px;">
+    <h2 style="font-size:24px; color:var(--green); margin-bottom:8px;">Our Quality Promise</h2>
+    <ul style="font-size:15px; color:var(--muted); line-height:1.6; padding-left:20px;">
+      <li>Freshness guaranteed — picked, packed, and delivered within 24–48 hours.</li>
+      <li>Safe and hygienic handling of all products.</li>
+      <li>Seasonal and locally sourced produce for maximum nutrition.</li>
+    </ul>
+  </div>
+
+  <!-- Why Choose Us -->
+  <div style="margin-bottom:40px;">
+    <h2 style="font-size:24px; color:var(--green); margin-bottom:8px;">Why Choose FarmerBasket</h2>
+    <ul style="font-size:15px; color:var(--muted); line-height:1.6; padding-left:20px;">
+      <li>Direct from farms → fresher than supermarkets.</li>
+      <li>Supporting local farmers → empowering communities.</li>
+      <li>Fast delivery, competitive prices, easy online ordering.</li>
+    </ul>
+  </div>
+
+  <!-- Call to Action -->
+  <div style="text-align:center; margin-top:40px;">
+    <a href="{% url 'shop' %}" class="btn" style="padding:12px 24px; font-size:16px;">Shop Fresh Today</a>
+  </div>
+</section>
+{% endblock %}
