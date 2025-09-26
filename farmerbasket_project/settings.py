@@ -1,5 +1,4 @@
 import os
-import dj_database_url
 from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'replace-this-with-a-secure-key-for-production'
@@ -62,7 +61,3 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-DATABASES = {
- 'default': dj_database_url.config(default=os.getenv("DATABASE_URL"))
-}
